@@ -1,0 +1,165 @@
+
+ Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+ Scanning 45.33.32.156 from port 1 to 1024...
+
+[OPEN] Port 22 (ssh)
+[OPEN] Port 80 (http)
+ Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+ Scanning 45.33.32.156 from port 1 to 1024...
+
+[OPEN] Port 22 (ssh)
+[OPEN] Port 80 (http)
+Traceback (most recent call last):
+  File "/home/bhanu/Desktop/PortWardenLite/src/portwatcher.py", line 82, in <module>
+    current_ports = scan_ports(ip)
+  File "/home/bhanu/Desktop/PortWardenLite/src/portwatcher.py", line 25, in scan_ports
+    result = s.connect_ex((target, port))
+KeyboardInterrupt
+ Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+ Scanning 45.33.32.156 from port 1 to 1024...
+
+ Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+ Scanning 45.33.32.156 from port 1 to 1024...
+
+[OPEN] Port 22 (ssh)
+[OPEN] Port 80 (http)
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+❌ Could not resolve hostname.
+🔒 No open ports found.
+
+📅 Scan finished at: 2025-07-22 05:39:45.532201
+✅ Done.
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+
+🔓 Open Ports:
+  [OPEN] Port 22 (ssh)
+  [OPEN] Port 80 (http)
+
+📅 Scan finished at: 2025-07-22 05:48:52.600205
+✅ Done.
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+
+🔓 Open Ports:
+  [OPEN] Port 80 (http)
+
+📅 Scan finished at: 2025-07-22 05:53:49.174659
+✅ Done.
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+
+🔓 Open Ports:
+  [OPEN] Port 22 (ssh)
+  [OPEN] Port 80 (http)
+
+📅 Scan finished at: 2025-07-22 05:58:53.317922
+✅ Done.
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+
+🔓 Open Ports:
+  [OPEN] Port 22 (ssh)
+  [OPEN] Port 80 (http)
+
+📅 Scan finished at: 2025-07-22 06:03:53.164242
+✅ Done.
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+
+🔓 Open Ports:
+  [OPEN] Port 22 (ssh)
+  [OPEN] Port 80 (http)
+
+📅 Scan finished at: 2025-07-22 06:08:51.848608
+✅ Done.
+
+🌍 Target Info:
+  IP: 45.33.32.156
+  Country: US
+  Region: California
+  City: Fremont
+  ISP: AS63949 Akamai Connected Cloud
+
+🛰 Scanning scanme.nmap.org from port 1 to 1024...
+
+
+🔓 Open Ports:
+  [OPEN] Port 22 (ssh)
+  [OPEN] Port 80 (http)
+
+📅 Scan finished at: 2025-07-22 06:13:55.365703
+✅ Done.
