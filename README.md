@@ -2,7 +2,7 @@
 
 
 ````markdown
-# 🛡️ PortWarden Lite
+# 🛡 PortWarden Lite
 
 > *A minimal yet effective network port monitoring tool built with Python & Nmap.*
 
@@ -24,7 +24,7 @@
 
 ---
 
-## 🧠 What is PortWarden Lite?
+##  What is PortWarden Lite?
 
 **PortWarden Lite** is a simple, modular Python-based tool designed to monitor the open ports on a target system or server. It helps detect when new services start (or stop) running by scanning and comparing port states over time.
 
@@ -37,7 +37,7 @@ This is especially useful in:
 
 ---
 
-## ⚙️ How it Works
+## ⚙ How it Works
 
 The project runs in **three major steps**, all tied together by a shell script:
 
@@ -54,14 +54,14 @@ The project runs in **three major steps**, all tied together by a shell script:
 
 ---
 
-## ✨ Features
+##  Features
 
-* 🔍 **Real-time detection** of changes in open ports
-* 📜 **History logging** for audit/tracking purposes
-* 🧪 **Fully testable** as individual scripts
-* 🛠️ **Shell script wrapper** for smooth automation
-* 🕒 **Cron integration** for periodic scans
-* 🧠 **Simple file-based memory** (no DB needed)
+*  **Real-time detection** of changes in open ports
+*  **History logging** for audit/tracking purposes
+*  **Fully testable** as individual scripts
+*  **Shell script wrapper** for smooth automation
+*  **Cron integration** for periodic scans
+*  **Simple file-based memory** (no DB needed)
 
 ---
 
@@ -89,7 +89,7 @@ PORTWARDEN_PROJECT/
 
 ---
 
-## 🛠️ Setup Instructions (On Kali Linux or Debian)
+##  Setup Instructions (On Kali Linux or Debian)
 
 1. **Clone the repo:**
 
@@ -114,7 +114,7 @@ source venv/bin/activate
 
 ---
 
-## 💥 Manual Usage
+##  Manual Usage
 
 You can run the tool using the provided shell script:
 
@@ -139,7 +139,7 @@ Each time you run it:
 
 ---
 
-## ⏰ Automate with Cron (Recommended)
+##  Automate with Cron (Recommended)
 
 To run the scanner automatically every 30 minutes:
 
@@ -155,17 +155,17 @@ crontab -e
 */30 * * * * /bin/bash /full/path/to/PORTWARDEN_PROJECT/src/run_portwarden.sh >> /full/path/to/PORTWARDEN_PROJECT/cron.log 2>&1
 ```
 
-> 🧠 This ensures PortWarden runs quietly in the background and logs any changes.
+> This ensures PortWarden runs quietly in the background and logs any changes.
 
 ---
 
 ## 📸 Sample Screenshots
-
+https://github.com/Bhanu-Nan/PORTWARDEN-LITE/tree/main/PORTWARDEN_PROJECT/src/docs/PortWarden.docs
 
 
 ---
 
-## 💡 Why This Project Exists
+##  Why This Project Exists
 
 > *A learning project turned into a real-world tool.*
 
