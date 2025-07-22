@@ -17,7 +17,7 @@ def send_discord_alert(message):
         payload = {"content": message}
         requests.post(DISCORD_WEBHOOK, json=payload)
     except Exception as e:
-        print(f"⚠️ Discord alert failed: {e}")
+        print(f" Discord alert failed: {e}")
 
 # ========== GEOLOCATION ==========
 def get_geolocation(ip):
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         ip = socket.gethostbyname(target)
         geo = get_geolocation(ip)
 
-        print("\n🌍 Target Info:")
+        print("\n Target Info:")
         print(f"  IP: {geo.get('ip')}")
         print(f"  Country: {geo.get('country')}")
         print(f"  Region: {geo.get('region')}")
@@ -88,23 +88,23 @@ if __name__ == "__main__":
         # Run port scan
         open_ports = scan_ports(target)
         if open_ports:
-            print("\n🔓 Open Ports:")
+            print("\n Open Ports:")
             for port in open_ports:
                 try:
                     service = socket.getservbyport(port)
                 except:
                     service = "unknown"
                 print(f"  [OPEN] Port {port} ({service})")
-            alert_msg = f"🛡️ PortWardenLite Alert: `{target}` has {len(open_ports)} open ports.\n" + \
-                        "\n".join([f"🟢 Port {p}" for p in open_ports])
+            alert_msg = f" PortWardenLite Alert: `{target}` has {len(open_ports)} open ports.\n" + \
+                        "\n".join([f" Port {p}" for p in open_ports])
             send_discord_alert(alert_msg)
         else:
-            print("🔒 No open ports found.")
-            send_discord_alert(f"🔒 PortWardenLite: No open ports found on `{target}`.")
+            print(" No open ports found.")
+            send_discord_alert(f" PortWardenLite: No open ports found on `{target}`.")
 
         # Optional Nmap scan
         if args.nmap:
-            print("\n🧠 Running Nmap...\n")
+            print("\n Running Nmap...\n")
             nmap_result = run_nmap(target)
             print(nmap_result)
             if len(nmap_result) > 1900:
@@ -113,9 +113,9 @@ if __name__ == "__main__":
 
         # Timestamp the scan
         now = datetime.datetime.now()
-        print(f"\n📅 Scan finished at: {now}")
-        print("✅ Done.")
+        print(f"\n Scan finished at: {now}")
+        print(" Done.")
 
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        send_discord_alert(f"❌ PortWardenLite crashed scanning `{target}`:\n{e}")
+        print(f" Unexpected error: {e}")
+        send_discord_alert(f" PortWardenLite crashed scanning `{target}`:\n{e}")
