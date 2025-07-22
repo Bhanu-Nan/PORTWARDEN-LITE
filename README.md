@@ -94,7 +94,7 @@ PORTWARDEN_PROJECT/
 1. **Clone the repo:**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/PORTWARDEN_PROJECT.git
+git clone https://github.com/Bhanu-Nan/PORTWARDEN_PROJECT.git
 cd PORTWARDEN_PROJECT/
 ```
 
