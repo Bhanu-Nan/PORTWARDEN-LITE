@@ -1,12 +1,5 @@
 
-Yessir 💻✨
-You're absolutely right — we’re going **pro-mode** now. Let’s write a full-blown, copy-ready, **README.md** in markdown format with **detailed explanations** for everything. Think of this as a hybrid between a GitHub README and a walkthrough/guide for future you or a recruiter to see *you really know your stuff*.
 
----
-
-### ✅ Your polished, copy-ready `README.md` with **detailed explanations**:
-
----
 
 ````markdown
 # 🛡️ PortWarden Lite
@@ -191,7 +184,7 @@ Whether you're new to infosec or a hacker-in-training, this tool helps solidify 
 
 NANDHANA R S
 Cybersecurity enthusiast | CS Major
-📍 GitHub: 
+📍 GitHub: https://github.com/Bhanu-Nan
 
 ---
 
