@@ -1,199 +1,97 @@
+PortWardenLite – Lightweight Port Change Monitor
+
+PortWardenLite is a personal project I built to scratch an itch — I wanted a dead-simple, no-BS tool that could watch open ports on any target and tell me when something changed. That's it. No heavy frameworks. No dashboards. Just Python, automation, and alerts that actually matter.
+
+⚡ What it does
+
+Scans a target machine or domain at regular intervals
+
+Compares the current open ports to the previous state
+
+Logs any differences — newly opened or closed ports
+
+Sends an alert to Discord (or just logs it quietly if you prefer)
+
+
+Think of it like motion detection — but for ports.
+
+Why I Built It
+
+I was learning about network security and realized how many services can quietly pop up or shut down on machines, especially in dynamic environments.
+A small change can mean:
+
+A new service spun up (legit or malicious)
+
+An accidental exposure
+
+Or worse, someone probing from inside
+
+
+So I built PortWardenLite — a minimal tool that just does the job.
+
+How it works
+
+1. You give it a target (like scanme.nmap.org)
+
+
+2. It runs an nmap scan in the background
+
+
+3. It saves the result as JSON
+
+
+4. Compares with the last scan
+
+
+5. Logs any changes
+
+
+6. (Optional) Sends alerts to Discord
 
 
 
-````markdown
-# 🛡 PortWarden Lite
+It’s automated using cron on Linux, so it can run every hour, every day — whatever you need.
 
-> *A minimal yet effective network port monitoring tool built with Python & Nmap.*
 
----
+Getting Started (Linux/Kali)
 
-## 📖 Table of Contents
+# Clone the repo
+git clone https://github.com/Bhanu-Nan/PORTWARDEN-LITE.git
+cd PORTWARDEN-LITE
 
-- [What is PortWarden Lite?](#-what-is-portwarden-lite)
-- [How it Works](#-how-it-works)
-- [Features](#-features)
-- [Project Structure](#-project-structure)
-- [Setup Instructions](#-setup-instructions)
-- [Manual Usage](#-manual-usage)
-- [Automate with Cron](#-automate-with-cron)
-- [Sample Screenshots](#-sample-screenshots)
-- [Why This Project Exists](#-why-this-project-exists)
-- [Author](#-author)
-- [License](#-license)
-
----
-
-##  What is PortWarden Lite?
-
-**PortWarden Lite** is a simple, modular Python-based tool designed to monitor the open ports on a target system or server. It helps detect when new services start (or stop) running by scanning and comparing port states over time.
-
-This is especially useful in:
-
-- Home lab monitoring
-- Penetration testing reconnaissance
-- Learning how network services behave
-- Understanding `nmap`, automation, and scripting in real-world security workflows
-
----
-
-## ⚙ How it Works
-
-The project runs in **three major steps**, all tied together by a shell script:
-
-```bash
-+-------------------+         +--------------------+        +-------------------+
-|   scanner.py      |  --->   |  portwatcher.py    | --->   |     alert.py      |
-|  (does scan)      |         | (detect changes)   |        | (log + alerting)  |
-+-------------------+         +--------------------+        +-------------------+
-````
-
-1. **`scanner.py`** — Uses Nmap to scan the target host and stores current open ports in `ports.json`.
-2. **`portwatcher.py`** — Compares `ports.json` (current scan) with `prev_ports.json` (previous scan).
-3. **`alert.py`** — Generates alerts for any ports that were added or removed, and stores history in `port_history.json`.
-
----
-
-##  Features
-
-*  **Real-time detection** of changes in open ports
-*  **History logging** for audit/tracking purposes
-*  **Fully testable** as individual scripts
-*  **Shell script wrapper** for smooth automation
-*  **Cron integration** for periodic scans
-*  **Simple file-based memory** (no DB needed)
-
----
-
-## 📁 Project Structure
-
-```bash
-PORTWARDEN_PROJECT/
-│
-├── src/
-│   ├── scanner.py             # Handles nmap scanning
-│   ├── portwatcher.py         # Compares current vs previous ports
-│   ├── alert.py               # Outputs/logs any alerts
-│   ├── ports.json             # Stores latest scan results
-│   ├── prev_ports.json        # Stores previous scan results
-│   ├── port_history.json      # Cumulative log of all changes
-│   └── run_portwarden.sh      # Bash script to run all the above
-│
-├── cron.log                   # Log file for cron output
-├── LICENSE
-├── README.md
-└── docs/
-    ├── portwarden_demo1.png   # (You will add screenshots here)
-    └── portwarden_demo2.png
-```
-
----
-
-##  Setup Instructions (On Kali Linux or Debian)
-
-1. **Clone the repo:**
-
-```bash
-git clone https://github.com/Bhanu-Nan/PORTWARDEN_PROJECT.git
-cd PORTWARDEN_PROJECT/
-```
-
-2. **Install Nmap if not installed:**
-
-```bash
+# Install dependencies
 sudo apt update
-sudo apt install nmap
-```
+sudo apt install nmap python3-pip
+pip3 install -r requirements.txt
 
-3. **(Optional) Create a virtual environment:**
+# Add your Discord webhook
+nano .env
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+Example .env:
 
----
+DISCORD_WEBHOOK=https://discord.com/api/webhooks/your-webhook
 
-##  Manual Usage
-
-You can run the tool using the provided shell script:
-
-```bash
-bash src/run_portwarden.sh
-```
-
-Or, if you want to run individual parts for debugging:
-
-```bash
-python3 src/scanner.py
-python3 src/portwatcher.py
-python3 src/alert.py
-```
-
-Each time you run it:
-
-* It scans the target host (you’ll be prompted for IP/domain)
-* Saves the scan results
-* Compares with the last scan
-* Alerts you on any changes
 
 ---
 
-##  Automate with Cron (Recommended)
+🔁 Automate with Cron
 
-To run the scanner automatically every 30 minutes:
+Run this to edit your crontab:
 
-1. Open crontab:
-
-```bash
 crontab -e
-```
 
-2. Add this line at the bottom:
+Add this line to run every hour:
 
-```bash
-*/30 * * * * /bin/bash /full/path/to/PORTWARDEN_PROJECT/src/run_portwarden.sh >> /full/path/to/PORTWARDEN_PROJECT/cron.log 2>&1
-```
+0 * * * * /usr/bin/python3 /path/to/portwatcher.py scanme.nmap.org >> /path/to/cron.log 2>&1
 
-> This ensures PortWarden runs quietly in the background and logs any changes.
-
----
+Replace /path/to/ with the full path to your script.
 
 ## 📸 Sample Screenshots
 https://github.com/Bhanu-Nan/PORTWARDEN-LITE/tree/main/PORTWARDEN_PROJECT/src/docs/PortWarden.docs
 
 
----
-
-##  Why This Project Exists
-
-> *A learning project turned into a real-world tool.*
-
-This project was built from scratch to:
-
-* Get hands-on with Python scripting for cybersecurity
-* Learn how to integrate `nmap` programmatically
-* Automate routine tasks using cron
-* Showcase practical skills on GitHub
-
-Whether you're new to infosec or a hacker-in-training, this tool helps solidify core concepts in recon, monitoring, and scripting.
-
----
-
-## 🙋‍♂️ Author
-
-NANDHANA R S
-Cybersecurity enthusiast | CS Major
-📍 GitHub: https://github.com/Bhanu-Nan
-
----
-
-## 📜 License
-
-MIT License
-Free to use, modify, and share. Just don’t use it to scan your neighbor’s router — unless you have permission 😉.
-
-
-
-
+🙋‍♂️ Author
+Nandhana R S 
+Made with frustration and fascination 
+I’m a CS undergrad with a minor in cyber, just building things that solve real problems.
 
